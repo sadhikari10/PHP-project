@@ -1,0 +1,17 @@
+body{
+    background-color:powderblue;
+}
+form{
+    width:30%;
+}
+.form-container{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.error{
+    display:flex;
+    align-items:center;
+    margin-left:35rem;
+}
