@@ -9,7 +9,7 @@
 <body>
     <div class="form-container">
         <form action="" method="post"enctype="multipart/form-data">
-            <fieldset>
+            <fieldset class="field-container">
                 <legend>Registration Form</legend>
                 <label>Username :</label><br>
                 <input type="text" name="username" value = "<?php
@@ -72,94 +72,102 @@
                         echo $_POST['phonenumber'];
                     }
                 ?>"><br>
-                <input type="checkbox" name="terms" <?php
-                if(isset($_POST['terms'])){
-                    echo 'checked';
-                }
-                ?>>
-                <label>Terms and Conditions</label><br>
+                <div>
+                    <input type="checkbox" name="terms" <?php
+                    if(isset($_POST['terms'])){
+                        echo 'checked';
+                    }
+                    ?>>
+                    <label>Terms and Conditions</label><br>
+                </div>
                 <input type="Submit" name="Submit">
-                
             </fieldset>
         </form>
     </div>
+    <div class='homediv'>
+        <a href='homepage.php'>Homepage</a>
+    </div>
 </body>
 </html>
-<?php
+<?php 
     if (isset($_POST['Submit'])) {
+        $username = trim($_POST["username"]);
+        $pass = trim($_POST["password"]);
+        $email = trim($_POST["email"]);
+        $age_range = $_POST["age"];
+        $address = trim($_POST["address"]);
+        $phone_number = trim($_POST["phonenumber"]);
+        if(empty($username)) {
 
-    $username = trim($_POST["username"]);
-    $pass = trim($_POST["password"]);
-    $email = trim($_POST["email"]);
-    $age_range = $_POST["age"];
-    $address = trim($_POST["address"]);
-    $phone_number = trim($_POST["phonenumber"]);
+            echo "<div class='error'>Please fill out the username</div>";
+        }
 
+        elseif(strlen($username) <6) {
+            echo "<div class='error'>Username must have at least 6 characters</div>";
+        }
 
-    if(empty($username)) {
+        elseif(empty($pass)) {
+            echo "<div class='error'>Please enter a password</div>";
+        }
 
-        echo "<div class='error'>Please fill out the username</div>";
-    }
+        elseif (!preg_match('/(?=.*[a-z])/', $pass)) {
+            echo "<div class='error'>The password must contain one lowercase letter</div>";
+        }
 
-    elseif(strlen($username) <6) {
-        echo "<div class='error'>Username must have at least 6 characters</div>";
-    }
+        elseif (!preg_match('/(?=.*[A-Z])/', $pass)) {
+            echo "<div class='error'>The password must contain one uppercase letter</div>";
+        }
     
-    elseif(empty($pass)) {
-        echo "<div class='error'>Please enter a password</div>";
-    }
-
-    elseif (!preg_match('/(?=.*[a-z])/', $pass)) {
-        echo "<div class='error'>The password must contain one lowercase letter</div>";
-    }
-
-    elseif (!preg_match('/(?=.*[A-Z])/', $pass)) {
-        echo "<div class='error'>The password must contain one uppercase letter</div>";
-    }
- 
-    elseif (!preg_match('/(?=.*\d)/', $pass)) {
-        echo "<div class='error'>The password must contain one number</div>";
-    }
-
-    elseif(empty($email)) {
-        echo "<div class='error'>Please enter your email</div>";
-    }
-
-    elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
-        echo "<div class='error'>Email must be in  @gmail.com format</div>";
-    }
-
-    elseif(empty($age_range)) {
-        echo "<div class='error'>Please select your age range</div>";
-    }
-
-    elseif(empty($address)) {
-        echo "<div class='error'>Please enter your address</div>";
-    }
-
-    elseif(empty($phone_number)) {
-        echo "<div class='error'>Please enter your phone number</div>";
-    }
-
-    elseif(!isset($_POST["terms"])) {
-        echo "<div class='error'>Please check the terms and conditions box before processing</div>";
-    }
-
-    else {
-        $password = md5(trim($_POST["password"]));
-        include('Connection.php');
-        $sql = "INSERT INTO register(username, password,email, age, address,phonenumber) 
-        VALUES('$username','$password','$email','$age_range','$address','$phone_number')";
-        $qry = mysqli_query($conn,$sql) or die(mysqli_error($conn));
-        if($qry) {
-            header("Location:homepage.php");
-            exit();
+        elseif (!preg_match('/(?=.*\d)/', $pass)) {
+            echo "<div class='error'>The password must contain one number</div>";
         }
+
+        elseif(empty($email)) {
+            echo "<div class='error'>Please enter your email</div>";
+        }
+
+        elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
+            echo "<div class='error'>Email must be in  @gmail.com format</div>";
+        }
+
+        elseif(empty($age_range)) {
+            echo "<div class='error'>Please select your age range</div>";
+        }
+
+        elseif(empty($address)) {
+            echo "<div class='error'>Please enter your address</div>";
+        }
+
+        elseif(empty($phone_number)) {
+            echo "<div class='error'>Please enter your phone number</div>";
+        }
+
+        elseif(!isset($_POST["terms"])) {
+            echo "<div class='error'>Please check the terms and conditions box before processing</div>";
+        }
+
         else {
-            header("Location:register.php");
+            $password = md5(trim($_POST["password"]));
+            include('Connection.php');
+            $sql = "INSERT INTO register(username, password,email, age, address,phonenumber) 
+            VALUES('$username','$password','$email','$age_range','$address','$phone_number')";
+            $qry = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+            if($qry) {
+                header("Location:homepage.php");
+                exit();
+            }
+            else {
+                header("Location:register.php");
+            }
         }
     }
-}
+   
+    
 ?>
+<footer class="footer">
+        <p>Copyright @ 2024 Sushant Adhikari. All Rights Reserved</p>
+</footer>
+
+
 
 

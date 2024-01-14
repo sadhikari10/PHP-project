@@ -1,18 +1,6 @@
 <?php
         session_start();
-        echo "<table border=1; padding:100px>";
-        echo "<tr><th>ID</th> <th>Image</th> <th>Product Name</th> <th>Price</th> <th>Category</th></tr>";
-
-      //  if(isset($_POST['submit']) && isset($_POST['sort'])) {
-         //   $search = $_POST['search'];
-         //   $sort = $_POST['price'];
-          //  $sql = "SELECT * FROM product WHERE name LIKE '%$search%'
-           // OR category LIKE '%$search%' ORDER BY price $sort";
-       // }
-        // $search = trim($_POST['txtsearch']);
-        // $valprice = $_POST['bookprice'];
-        // $bookcategory = $_POST['genre'];
-
+       
         $search = isset($_POST['txtsearch']) ? trim($_POST['txtsearch']) : "";
         $valprice = isset($_POST['bookprice']) ? $_POST['bookprice'] : "";
         $bookcategory = isset($_POST['genre']) ? $_POST['genre'] : "";
@@ -43,17 +31,30 @@
 
         //executing the query
         $qry=mysqli_query($conn, $sql)or die(mysqli_error($conn));
+    
+        echo "<div class = 'firstcontainer container'>";
+
         while($row=mysqli_fetch_array($qry)){
-            echo "<tr>";
-            echo "<td>".$row['id']."</td>";
-            echo "<td><img src='".$row['image']." 'height='100px' width='100px'></td>";
-            echo "<td>".$row['name']."</td>";
-            echo "<td>".$row['price']."</td>";
-            echo "<td>".$row['category']."</td>";
+            echo ' <div class="card product">';
+            echo ' <div class="productInfo">';
+            echo "<img src='".$row['image']." 'height='100px' width='100px'>" ;
+            echo '<h3>'.$row["name"].'</h3>';
+            echo '<p>Category:'.$row["category"].'</p>';
+            echo '<p>Price: '.$row["price"].'</p>';
+            echo '</div>';
+            echo '</div>';
         }
-        echo "</table>";
-        
+        echo "</div>";
+
 ?>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link href="css/manipulate.css" rel="stylesheet">
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
 
 <form method="post" action="" enctype="multipart/form-data">
     <label>Search</label>

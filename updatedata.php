@@ -58,8 +58,10 @@
         $oldimage = $row['image'];
     }
 ?>
+<link href="css/register.css" rel="stylesheet">
 <form method="post" action="" name="category" enctype="multipart/form-data">
-    <fieldset>
+    <div class="form-container">
+    <fieldset class="field-container">
         <legend>Add product</legend>
         <label>Product Name</lable><br>
         <input type="text" name="productname" value="<?php 
@@ -114,9 +116,6 @@
         }
          ?>>
         <label>History</label><br><br>
-
-
-
         <label>Old Image</label><br>
         <img src='<?php
          echo $oldimage?>' height='100px' width='100px'
@@ -126,6 +125,6 @@
         <input type="file" name="uploadfile">
 
         <input type="submit" name="update" value="update">
-        
     </fieldset>
+    </div>
 </form>

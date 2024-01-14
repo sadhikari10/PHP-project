@@ -1,0 +1,20 @@
+.firstcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product {
+    width: calc(33.33% - 1.25rem);
+    margin: 0.5rem -1rem 1.5rem 0;
+    padding: 1rem 0 1rem 0;
+
+}
+.productinfo{
+    text-align: center;
+}
+.edit_section{
+    display:flex;
+    align-items:center;
+    margin-left:9rem;
+}
