@@ -10,7 +10,7 @@
     <div class="form-container">
         <form action="" method="post"enctype="multipart/form-data">
             <fieldset class="field-container">
-                <legend>Registration Form</legend>
+                <legend>User Registration Form</legend>
                 <label>Username :</label><br>
                 <input type="text" name="username" value = "<?php
                     if(isset($_POST['username'])) { 
@@ -66,12 +66,6 @@
                         echo $_POST['address'];
                     }
                 ?>"><br>
-                <label>Phone Number :</label><br>
-                <input type="text" name="phonenumber" value = "<?php
-                    if(isset($_POST['phonenumber'])) { 
-                        echo $_POST['phonenumber'];
-                    }
-                ?>"><br>
                 <div>
                     <input type="checkbox" name="terms" <?php
                     if(isset($_POST['terms'])){
@@ -85,7 +79,7 @@
         </form>
     </div>
     <div class='homediv'>
-        <a href='homepage.php'>Homepage</a>
+        <a href='index.php'>Homepage</a>
     </div>
 </body>
 </html>
@@ -96,64 +90,59 @@
         $email = trim($_POST["email"]);
         $age_range = $_POST["age"];
         $address = trim($_POST["address"]);
-        $phone_number = trim($_POST["phonenumber"]);
         if(empty($username)) {
 
             echo "<div class='error'>Please fill out the username</div>";
         }
 
         elseif(strlen($username) <6) {
-            echo "<div class='error'>Username must have at least 6 characters</div>";
+            echo "<div class='error'>Username should contain at lest 6 letters</div>";
         }
 
         elseif(empty($pass)) {
-            echo "<div class='error'>Please enter a password</div>";
+            echo "<div class='error'>Password field is required</div>";
         }
 
         elseif (!preg_match('/(?=.*[a-z])/', $pass)) {
-            echo "<div class='error'>The password must contain one lowercase letter</div>";
+            echo "<div class='error'>Password must contain one lowercase letter</div>";
         }
 
         elseif (!preg_match('/(?=.*[A-Z])/', $pass)) {
-            echo "<div class='error'>The password must contain one uppercase letter</div>";
+            echo "<div class='error'>Password must contain one uppercase letter</div>";
         }
     
         elseif (!preg_match('/(?=.*\d)/', $pass)) {
-            echo "<div class='error'>The password must contain one number</div>";
+            echo "<div class='error'>Password must contain one number</div>";
         }
 
         elseif(empty($email)) {
-            echo "<div class='error'>Please enter your email</div>";
+            echo "<div class='error'>Email field is empty. Pease provide an email</div>";
         }
 
         elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
-            echo "<div class='error'>Email must be in  @gmail.com format</div>";
+            echo "<div class='error'>Email does not have  @gmail.com format</div>";
         }
 
         elseif(empty($age_range)) {
-            echo "<div class='error'>Please select your age range</div>";
+            echo "<div class='error'>Age range is not selected</div>";
         }
 
         elseif(empty($address)) {
-            echo "<div class='error'>Please enter your address</div>";
-        }
-
-        elseif(empty($phone_number)) {
-            echo "<div class='error'>Please enter your phone number</div>";
+            echo "<div class='error'>Address field is empty</div>";
         }
 
         elseif(!isset($_POST["terms"])) {
-            echo "<div class='error'>Please check the terms and conditions box before processing</div>";
+            echo "<div class='error'>Terms and conditions box has no been checked.</div>";
         }
 
         else {
             $password = md5(trim($_POST["password"]));
-            include('Connection.php');
-            $sql = "INSERT INTO register(username, password,email, age, address,phonenumber) 
-            VALUES('$username','$password','$email','$age_range','$address','$phone_number')";
+            include('connection.php');
+            $sql = "INSERT INTO register(username, password,email, age, address) 
+            VALUES('$username','$password','$email','$age_range','$address')";
             $qry = mysqli_query($conn,$sql) or die(mysqli_error($conn));
             if($qry) {
-                header("Location:homepage.php");
+                header("Location:index.php");
                 exit();
             }
             else {
@@ -161,8 +150,6 @@
             }
         }
     }
-   
-    
 ?>
 <footer class="footer">
         <p>Copyright @ 2024 Sushant Adhikari. All Rights Reserved</p>

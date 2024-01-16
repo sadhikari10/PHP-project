@@ -44,7 +44,7 @@
         </form>
     </div>
     <div class='homediv'>
-        <a href='homepage.php'>Homepage</a>
+        <a href='index.php'>Homepage</a>
     </div>
     <?php
     if(isset($_POST["Login"])) {
@@ -55,6 +55,9 @@
             echo "<div class='error'>Please fill out the username</div>";
         }
         elseif(empty($password)){
+            echo "<div class='error'>Please fill out the password</div>";
+        }
+        elseif(empty($role)){
             echo "<div class='error'>Please fill out the password</div>";
         }
         else{
@@ -68,7 +71,7 @@
                     if($dataname == $username && $datapassword == md5($password)){
                         session_start();
                         $_SESSION['username'] = $dataname;
-                        header("location:Manipulate.php");
+                        header("location:adminhomepage.php");
                         break;
                     }
                     else {

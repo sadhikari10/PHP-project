@@ -1,13 +1,12 @@
 body{
     margin:0;
     padding:0;
-    background-color:powderblue;
+   background: linear-gradient(to right, #cfe2f3, #a4c7e3);    
 }
 form{
     width:30%;
 }
 .form-container{
-
     display:flex;
     justify-content:center;
     align-items:center;
@@ -37,6 +36,7 @@ form{
 
 }
 .field-container{
+    
     display:grid;
     grid-template-columns: (1,1fr);
     align-items:center;

@@ -1,0 +1,55 @@
+.body{
+    background: linear-gradient(to right, #cfe2f3, #a4c7e3);
+}
+.firstcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product {
+    width: calc(33.33% - 1.25rem);
+    margin: 0.5rem -1rem 1.5rem 0;
+    padding: 1rem 0 1rem 0;
+
+}
+.productinfo{
+    text-align: center;
+}
+.edit_section{
+    display:flex;
+    align-items:center;
+    margin-left:9rem;
+}
+
+.addingproduct{
+    /* margin-left:20rem; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.field{
+    padding: 1rem 0rem 0 5rem;
+    background-color: #eee8e8;
+}
+.firstadmindiv{
+    display:flex;
+    justify-content:flex-end;
+}
+
+.secondadmindiv{
+    text-align:center;
+    font-size:25;
+}
+
+.firstuserdiv{
+    text-align:center;
+    font-size:25;
+}
+
+.seconduserdiv{
+    display:flex;
+    justify-content:flex-end;
+}

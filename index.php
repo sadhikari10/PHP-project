@@ -7,7 +7,7 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<body>
+<body style="background: linear-gradient(to right, #cfe2f3, #a4c7e3);">
     
 
 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
@@ -53,7 +53,7 @@
 
 // Display the greeting
 echo "<h1 style='text-align:center;'>$greeting</h1>";
-echo '<h1 style="text-align:center;">Welcome to homepage</h1>' ;
+echo '<h1 style="text-align:center;">Welcome to homepage of Adhikari\'s Library</h1>' ;
 ?>
 </body>
 
