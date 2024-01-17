@@ -69,6 +69,8 @@
                     $dataname =  $row['username'];
                     $datapassword = $row['password'];
                     if($dataname == $username && $datapassword == md5($password)){
+                        //username=admin
+                        //password=admin123
                         session_start();
                         $_SESSION['username'] = $dataname;
                         header("location:adminhomepage.php");

@@ -1,0 +1,10 @@
+<?php
+session_start();
+session_destroy();
+header('location:./sessions.php')
+?>
+<?php
+session_start();
+session_destroy();
+header('location:./sessions.php')
+?>

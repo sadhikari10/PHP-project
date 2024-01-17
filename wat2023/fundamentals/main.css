@@ -1,0 +1,8 @@
+body {
+    font-family: verdana, helvetica, arial, sans-serif;
+    font-size: 1em;
+    }
+
+table,td,th{
+    border:1px solid black;
+}

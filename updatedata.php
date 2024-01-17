@@ -78,7 +78,7 @@
     <body style="background: linear-gradient(to right, #cfe2f3, #a4c7e3);">    
         <form method="post" action="" name="category" enctype="multipart/form-data" class="addingproduct">
             <!-- //<div class="form-container"> -->
-                <fieldset class="card field">
+                <fieldset class="field">
                     <legend>Add product</legend>
                     <label>Product Name</lable><br>
                     <input type="text" name="productname" value="<?php 

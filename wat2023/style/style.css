@@ -1,0 +1,47 @@
+
+.div1 li{
+    list-style-type: none;
+    width:30%;
+    float:left;
+    border:2px solid green;
+    background-color: grey;
+    padding:10px;
+    margin:10px;
+}
+#selectors-heading {
+    font-family: cursive;
+    font-weight: bold;
+}
+
+.letter-spacing {
+    letter-spacing: 10px; /* Adjust the spacing as needed */
+    color:violet;
+}
+
+.firstdiv{
+
+    display:inline-block;
+    width:20%;
+    border:2px solid green;
+    padding:10px;
+    margin:10px;
+}
+.seconddiv{
+
+    display:inline-block;
+    width:40%;
+    border:2px solid green;
+    padding:10px;
+    margin:10px;
+}
+
+
+
+.thirddiv{
+
+    display:inline-block;
+    width:30%;
+    border:2px solid green;
+    padding:10px;
+    margin:10px;
+}

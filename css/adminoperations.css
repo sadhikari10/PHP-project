@@ -1,7 +1,7 @@
 .body{
     background: linear-gradient(to right, #cfe2f3, #a4c7e3);
 }
-.firstcontainer {
+.firstcontainer.container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -10,11 +10,13 @@
 .product {
     width: calc(33.33% - 1.25rem);
     margin: 0.5rem -1rem 1.5rem 0;
-    padding: 1rem 0 1rem 0;
+    padding: 1rem;
+    text-align:center;
 
 }
 .productinfo{
     text-align: center;
+    padding-left: 3rem;
 }
 .edit_section{
     display:flex;
@@ -24,14 +26,14 @@
 
 .addingproduct{
     /* margin-left:20rem; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding: 1rem 0rem 0 5rem;
+    background-color: #eee8e8;
+    width:400px;
+    margin:50px auto;
+
 }
 
 .field{
-    padding: 1rem 0rem 0 5rem;
     background-color: #eee8e8;
 }
 .firstadmindiv{

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Adding css</title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            pre{
+                font-size: x-large;
+                color:seagreen;
+            }
+        </style>
+
+	</head>
+	<body>
+		<h1>Fundamentals of CSS</h1>
+        <h2>Cascading</h2>
+        <p style="font-weight: 800;">Style can be added as inline element using the style attribute on tags as is the case for this paragraph. Here font-weight has been givena  wieght of 800.</p>
+        <pre>    The inline style takes precedent over all other style 
+    declarations. Next in order of precedent is the embeded
+    style. This uses style tahs and is often found in the 
+    header section of a page. This pre tag is styled with 
+    embedded style. An extra larger font.
+        </pre>
+        <p>
+            Ideally style is held seperate to structure in a style sheet. Other than the 2 examples above all other style on this page is in a separete style sheet. Including the change of base font to Arial.
+        </p>
+
+        <h2 id="selectors-heading">Selectors</h2>
+    <p class="custom-text">CSS selectors are used to apply style. There is the element selector, class selector, and id selector. All being well, you have used an element selector to modify the font on this page 
+        by adding style to the body tag in your attached style sheet. Words in this <span class="letter-spacing">sentence</span> have been <span class="letter-spacing">styled</span> using a class selector applied to letter-spacing,
+         and the heading for this section with an id selector.</p>
+        <h2>Box Model</h2>
+        <div class="div1">
+            <li><span>https://www.tutorialrepublic.com/html-tutoial/</span></li>
+            <li><span>https://www.tutorialrepublic.com/css-tutorial/</span></li>
+            <li><span>https://www.w3schools.com/</span></li>
+        </div>
+        <p>The links above are held in a list that is re-styled to remove list-style-type and display inline. Padding,margin and border are then added as appropriate.</p>
+        <h2>Layout</h2>
+            <div class="firstdiv">These words are in column 1</div>
+            <div class="seconddiv">These words are in column 2</div>
+            <div class="thirddiv">These words are in column 3</div>
+        
+        <br>
+        <p>Margin, padding, borders and floats added to achieve this layout of columns.</p>
+        <a href="../watIndex.html">Return to Portfolio</a>
+	</body>
+</html>
