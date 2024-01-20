@@ -60,10 +60,6 @@
     }
 ?>
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -80,19 +76,19 @@
             <!-- //<div class="form-container"> -->
                 <fieldset class="field">
                     <legend>Add product</legend>
-                    <label>Product Name</lable><br>
+                    <label>Product Name</label><br>
                     <input type="text" name="productname" value="<?php 
                         echo $oldname;
                     ?>" >
                     <br>
-                    <label>Product price</lable><br>
+                    <label>Product price</label><br>
                     <input type="text" name="productprice" value="<?php
                         echo $oldprice;
                     ?>">
                     <br>
 
 
-                    <label> Update Category</lable><br>
+                    <label> Update Category</label><br>
                     <input type="radio" name="productcategory" value="Fiction" <?php 
                     if($oldcategory == 'Fiction') {
                         echo 'checked';

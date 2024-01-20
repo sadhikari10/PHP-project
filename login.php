@@ -46,7 +46,7 @@
     <div class='homediv'>
         <a href='index.php'>Homepage</a>
     </div>
-    <?php
+<?php
     if(isset($_POST["Login"])) {
         $username=trim($_POST['username']);
         $password=trim($_POST['password']);
@@ -58,7 +58,7 @@
             echo "<div class='error'>Please fill out the password</div>";
         }
         elseif(empty($role)){
-            echo "<div class='error'>Please fill out the password</div>";
+            echo "<div class='error'>Please fill out the role</div>";
         }
         else{
             if($role =="Admin"){
@@ -90,20 +90,19 @@
                     $dataname =  $row['username'];
                     $datapassword = $row['password'];
                     if($dataname == $username && $datapassword == md5($password)){  
-                    session_start();
-                    $_SESSION['username'] = $dataname;
-                    header("location:userdisplay.php");
-                        break;
-                    }
-                    else {
-                        echo "<div class='error'>Invalid username or password</div>";
-                    }
+                        session_start();
+                        $_SESSION['username'] = $dataname;
+                        header("location:userdisplay.php");
+                            break;
+                        }
+                        else {
+                            echo "<div class='error'>Invalid username or password</div>";
+                        }
                 }   
             }
         }
-    }
-    
-    ?>
+    }    
+?>
 <footer class="footer">
     <p>Copyright @ 2024 Sushant Adhikari. All Rights Reserved</p>
 </footer> 

@@ -132,7 +132,7 @@
         }
 
         elseif(!isset($_POST["terms"])) {
-            echo "<div class='error'>Terms and conditions box has no been checked.</div>";
+            echo "<div class='error'>Terms and conditions box has not been checked.</div>";
         }
 
         else {
